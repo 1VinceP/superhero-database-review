@@ -10,6 +10,7 @@ class App extends Component {
         <header>
           <div>Secret Superhero (Data)base</div>
         </header>
+        
         <div className='app-body'>
           <img src={marvel} alt='Marvel' />
           <img src={dc} alt='DC' />
