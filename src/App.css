@@ -25,6 +25,7 @@ header {
   align-items: center;
 }
 
-img {
+.app-body img {
   max-width: 400px;
 }
+
