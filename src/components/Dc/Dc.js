@@ -21,9 +21,13 @@ class Dc extends Component {
     }
 
     render() {
+
+        let heroes = this.state.superheroes.map( hero => <div key={hero.id}>{hero.name}</div> )
+
         return (
             <div>
                 DC
+                {heroes}
                 <button onClick={() => this.getHeroes()} >GET</button>
             </div>
         )

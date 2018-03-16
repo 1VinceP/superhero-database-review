@@ -21,9 +21,14 @@ class Marvel extends Component {
     }
 
     render() {
+
+        let heroes = this.state.superheroes.map( hero => <div key={hero.id}>{hero.name}</div> )
+        
+
         return (
             <div>
                 Marvel
+                {heroes}
                 <button onClick={() => this.getHeroes()} >GET</button>
             </div>
         )
