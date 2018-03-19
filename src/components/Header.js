@@ -4,7 +4,7 @@ export default function Header() {
 
     return (
         <header>
-            Secret Superhero (Database)
+            Secret Superhero (Data)base
         </header>
     )
 }

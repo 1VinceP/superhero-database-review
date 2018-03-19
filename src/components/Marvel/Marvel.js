@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './marvel.css';
 
 class Marvel extends Component {
     constructor() {
@@ -20,13 +21,20 @@ class Marvel extends Component {
             } )
     }
 
+    deleteHero( id ) {
+        axios.delete( `/api/delete_hero/${id}` )
+            .then( () => {
+                this.getHeroes()
+            })
+    }
+
     render() {
 
-        let heroes = this.state.superheroes.map( hero => <div key={hero.id}>{hero.name}</div> )
+        let heroes = this.state.superheroes.map( hero => <div onClick={() => this.deleteHero(hero.id)} key={hero.id}>{hero.name}</div> )
         
 
         return (
-            <div>
+            <div className='marvel-body' >
                 Marvel
                 {heroes}
                 <button onClick={() => this.getHeroes()} >GET</button>

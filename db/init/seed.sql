@@ -13,5 +13,6 @@ INSERT INTO Superheroes
     ( name, powers, faction, good )
     VALUES
         ( 'Spiderman', 'Webs', 'Marvel', true ),
+        ( 'Venom', 'Fangs', 'Marvel', false ),
         ( 'Batman', 'Money', 'DC', true),
         ( 'Joker', 'Psycho', 'DC', false );

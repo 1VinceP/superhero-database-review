@@ -15,6 +15,8 @@ header {
   color: #fff;
   font-size: 48px;
   box-shadow: 0 3px 16px 3px #000a;
+  position: relative;
+  z-index: 5;;
 }
 
 .app-body {

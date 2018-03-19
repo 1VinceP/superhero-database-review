@@ -14,7 +14,8 @@ massive( process.env.DATABASE_URI )
         app.set( 'db', db )
         app.get('db').init.seed().then( res => {
             console.log( res )
-        }).catch( err => console.log( err ))
+        })
+        .catch( err => console.log( err ))
     })
 
 app.get( '/api/get_marvel', ( req, res ) => {
@@ -26,6 +27,12 @@ app.get( '/api/get_marvel', ( req, res ) => {
 app.get( '/api/get_dc', ( req, res ) => {
     app.get('db').get_dc()
         .then( response => res.send( response ))
+} )
+
+app.delete( '/api/delete_hero/:id', ( req, res ) => {
+    console.log( 'hit' )
+    app.get('db').delete_heroes(req.params.id)
+        .then( response => res.send() )
 } )
 
 let port = 3003;
