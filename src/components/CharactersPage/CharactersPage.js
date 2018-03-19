@@ -31,7 +31,7 @@ class CharactersPage extends Component {
     }
 
     render() {
-        console.log( this.props.match.params.faction )
+        const { faction } = this.props.match.params
 
         let heroes = this.state.characters.map( hero => <div onClick={() => this.deleteHero(hero.id)} key={hero.id}>{hero.name}</div> )
 
@@ -39,8 +39,8 @@ class CharactersPage extends Component {
             <div>
                 <Header />
 
-                <div className={`characters-body ${this.props.match.params.faction}`}>
-                    {this.props.match.params.faction.toUpperCase()}
+                <div className={`characters-body ${faction}`}>
+                    {faction.toUpperCase()}
                     {heroes}
                     <button onClick={() => this.getHeroes()} >GET</button>
                 </div>
