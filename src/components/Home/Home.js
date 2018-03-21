@@ -12,10 +12,10 @@ class Home extends Component {
                 <Header />
         
                 <div className='app-body'>
-                    <Link to='/marvel'>
+                    <Link to='/characters/marvel'>
                         <img src={marvel} alt='Marvel' />
                     </Link>
-                    <Link to='/dc'>
+                    <Link to='/characters/dc'>
                         <img src={dc} alt='DC' />
                     </Link>
                 </div>

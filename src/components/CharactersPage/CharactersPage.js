@@ -3,6 +3,7 @@ import axios from 'axios';
 import './charactersPage.css';
 
 import Header from '../Header';
+import DisplayHero from '../DisplayHero';
 
 class CharactersPage extends Component {
     constructor() {
@@ -11,6 +12,11 @@ class CharactersPage extends Component {
         this.state = {
             characters: []
         }
+
+        this.getHeroes = this.getHeroes.bind(this)
+        this.deleteHero = this.deleteHero.bind(this)
+        this.editHero = this.editHero.bind(this)
+
     }
 
     getHeroes() {
@@ -30,10 +36,29 @@ class CharactersPage extends Component {
             })
     }
 
+    editHero( id, newName, newPowers ) {
+        let body = {
+            name: newName,
+            powers: newPowers
+        }
+
+        axios.put( `/api/edit_hero/${id}`, body )
+            .then( () => this.getHeroes() )
+    }
+
     render() {
         const { faction } = this.props.match.params
 
-        let heroes = this.state.characters.map( hero => <div onClick={() => this.deleteHero(hero.id)} key={hero.id}>{hero.name}</div> )
+        let heroes = this.state.characters.map( hero => {
+            return (
+                    <DisplayHero
+                        key={hero.id}
+                        hero={hero}
+                        deleteHero={this.deleteHero}
+                        editHero={this.editHero}
+                    />
+            )
+        })
 
         return (
             <div>

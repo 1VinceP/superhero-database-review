@@ -19,7 +19,6 @@ massive( process.env.DATABASE_URI )
     })
 
 app.get( '/api/get_marvel', ( req, res ) => {
-    console.log( 'hit' )
     app.get('db').get_marvel()
         .then( response => res.status(200).send( response ) )
 } )
@@ -30,9 +29,16 @@ app.get( '/api/get_dc', ( req, res ) => {
 } )
 
 app.delete( '/api/delete_hero/:id', ( req, res ) => {
-    console.log( 'hit' )
     app.get('db').delete_heroes(req.params.id)
         .then( response => res.send() )
+} )
+
+app.put( '/api/edit_hero/:id', ( req, res ) => {
+    const { name, powers } = req.body
+    const { id } = req.params
+
+    app.get('db').edit_hero([id, name, powers])
+        .then( () => res.status(200).send() )
 } )
 
 let port = 3003;
