@@ -34,9 +34,9 @@ class DisplayHero extends Component {
         return (
             <div>
                 { !this.state.edit
-                    ? <div>
-                        <div onClick={() => deleteHero(hero.id)}>{hero.name}</div> 
-                        <button onClick={() => this.setState({edit: true})}>Edit</button>
+                    ? <div className='display-hero'>
+                        <div onClick={() => deleteHero(hero.id)}>{hero.name} - {hero.powers}</div>
+                        <button className='hero-edit-button' onClick={() => this.setState({edit: true})}>Edit</button>
                       </div>
                     : <div>
                         <input value={this.state.newName} placeholder={hero.name} onChange={e => this.handleChange('newName', e)} />
