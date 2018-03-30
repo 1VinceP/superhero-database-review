@@ -4,6 +4,7 @@ import marvel from '../../marvel.png';
 import dc from '../../dc.png';
 
 import Header from '../../components/Header';
+import DisplayCount from '../../components/DisplayCount';
 
 class Home extends Component {
     render() {
@@ -18,6 +19,8 @@ class Home extends Component {
                     <Link to='/characters/dc'>
                         <img src={dc} alt='DC' />
                     </Link>
+
+                    <DisplayCount />
                 </div>
             </div>
         )

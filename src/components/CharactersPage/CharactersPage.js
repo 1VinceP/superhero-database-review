@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import './charactersPage.css';
 
@@ -75,4 +76,4 @@ class CharactersPage extends Component {
     }
 }
 
-export default CharactersPage;
+export default connect()(CharactersPage);
