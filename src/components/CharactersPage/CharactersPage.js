@@ -6,6 +6,9 @@ import './charactersPage.css';
 import Header from '../Header';
 import DisplayHero from '../DisplayHero';
 
+import { addCount } from '../../lil_duckies/reducer';
+import { addMarvelCount } from '../../lil_duckies/marvelReducer';
+
 class CharactersPage extends Component {
     constructor() {
         super();
@@ -28,6 +31,14 @@ class CharactersPage extends Component {
                     characters: response.data
                 })
             } )
+
+        const { faction } = this.props.match.params
+        
+        if( faction === 'marvel')
+            this.props.addMarvelCount(this.props.marvelCount)
+        else if( faction === 'dc' )
+            this.props.addCount(this.props.count)
+
     }
 
     deleteHero( id ) {
@@ -49,6 +60,8 @@ class CharactersPage extends Component {
 
     render() {
         const { faction } = this.props.match.params
+
+        console.log( this.props )
 
         let heroes = this.state.characters.map( hero => {
             return (
@@ -76,4 +89,12 @@ class CharactersPage extends Component {
     }
 }
 
-export default connect()(CharactersPage);
+function mapStateToProps( state ) {
+
+    return {
+        count: state.dc.count,
+        marvelCount: state.marvel.count
+    }
+}
+
+export default connect( mapStateToProps, { addCount, addMarvelCount } )(CharactersPage);

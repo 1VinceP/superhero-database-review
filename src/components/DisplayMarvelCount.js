@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-function DisplayCount(props) {
+function DisplayMarvelCount(props) {
     return (
         <div style={{ fontSize: '36px' }}>
             {props.count}
@@ -11,8 +11,8 @@ function DisplayCount(props) {
 
 function mapStateToProps( state ) {
     return {
-        count: state.dc.count
+        count: state.marvel.count
     }
 }
 
-export default connect( mapStateToProps )(DisplayCount);
+export default connect( mapStateToProps )(DisplayMarvelCount);
